@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: llama-stack-config
 data:
-  run.yaml: |
+  config.yaml: |
     version: "2"
     image_name: rh
     apis:
@@ -183,11 +183,6 @@ spec:
             secretKeyRef:
               name: qdrant-secret
               key: api-key
-      command:
-        - /bin/sh
-        - -c
-        - |
-          exec llama stack run /etc/llama-stack/run.yaml
       name: llama-stack
       port: 8321
     distribution:
